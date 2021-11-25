@@ -3,7 +3,7 @@ import click
 import sys
 import traceback
 
-bin_tool_version = '0.0.1'
+bin_tool_version = '0.0.2'
 
 @click.group()
 def cli():
@@ -31,7 +31,7 @@ def bin_to_hex(bin:str, hex:str):
     try:
         intelhex.bin2hex(bin, hex, 0)
     except Exception as e:
-        print('err:' + traceback.format_exc())
+        click.echo('err:' + traceback.format_exc(), err = False)
         sys.exit(1)
 
 cli.add_command(hello)
