@@ -3,7 +3,7 @@ import click
 import sys
 import traceback
 
-bin_tool_version = '0.0.2'
+bin_tool_version = '0.0.3'
 
 @click.group()
 def cli():
@@ -27,9 +27,10 @@ def version():
 @click.command()
 @click.option('--bin', type=str, prompt='intput your bin file', help='input bin file path')
 @click.option('--hex', type=str,  prompt='intput save hex file path', help='input hex file path')
-def bin_to_hex(bin:str, hex:str):
+@click.option('--start', default='0x0', help='input hex start addr, example: 0x08000000')
+def bin_to_hex(bin:str, hex:str, start:str):
     try:
-        intelhex.bin2hex(bin, hex, 0)
+        intelhex.bin2hex(bin, hex, int(start, 16))
     except Exception as e:
         click.echo('err:' + traceback.format_exc(), err = False)
         sys.exit(1)
