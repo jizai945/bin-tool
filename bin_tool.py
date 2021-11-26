@@ -31,6 +31,7 @@ def version():
 def bin_to_hex(bin:str, hex:str, start:str):
     try:
         intelhex.bin2hex(bin, hex, int(start, 16))
+        click.echo('convert sucess ^.^')
     except Exception as e:
         click.echo('err:' + traceback.format_exc(), err = False)
         sys.exit(1)
