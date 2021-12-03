@@ -33,7 +33,7 @@ python bin_tool.py version
  convert:
 
 ```shell
-python bin_tool.py bin-to-hex --bin='bin_path' --hex='hex_path'
+python bin_tool.py bin-to-hex --bin=`bin_path` --hex=`hex_path` --start=0x08000000
 ```
 
 
